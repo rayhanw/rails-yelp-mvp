@@ -1,0 +1,14 @@
+<h1>Restaurants List</h1>
+
+<%= link_to new_restaurant_path, class: 'btn btn-primary rounded mb-3' do %>
+  <i class="fas fa-plus-square">&nbsp;</i>Create a restaurant
+<% end %>
+
+<ul style="list-style: none; padding: 0">
+  <% @restaurants.each do |r| %>
+    <li>
+      <h3><%= link_to r.name, restaurant_path(r) %></h3>
+    </li>
+    <br>
+  <% end %>
+</ul>

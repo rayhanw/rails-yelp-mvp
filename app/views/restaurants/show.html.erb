@@ -1,0 +1,23 @@
+<h1 class="text-left">Name: <%= @restaurant.name %></h1>
+<h4 class="text-left">Address: <%= @restaurant.address %></h4>
+<p class="text-left">Cuisine: <%= @restaurant.category %></p>
+
+<ul class="list-group">
+  <li class="list-group-item rating-list">
+    <% @restaurant.reviews.each do |r| %>
+      <p><%= r.content %></p>
+      <p class="ratings">
+        <% r.rating.times do %>
+          <i class="fas fa-star" style="color: orange"></i>
+        <% end %>
+      </p>
+    <% end %>
+  </li>
+</ul>
+<%= link_to restaurants_path, class: 'btn btn-secondary m-3' do %>
+  <i class="fas fa-backward" style="font-size: 24px">&nbsp;</i>Back to list
+<% end %>
+
+<h2 class="new-rating">Add a new review for <%= @restaurant.name %></h2>
+
+<%= render 'review_form' %>
